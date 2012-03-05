@@ -1,4 +1,4 @@
-
+//
 package rentalshop;
 
 import java.math.BigDecimal;
