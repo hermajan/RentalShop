@@ -20,7 +20,6 @@ public class Car {
   public long getID() {
     return ID;
   }
-
   public void setID(long ID) {
     this.ID = ID;
   }
@@ -28,7 +27,6 @@ public class Car {
   public Date getManufactured() {
     return manufactured;
   }
-
   public void setManufactured(Date manufactured) {
     this.manufactured = manufactured;
   }
@@ -36,7 +34,6 @@ public class Car {
   public String getModel() {
     return model;
   }
-
   public void setModel(String model) {
     this.model = model;
   }
@@ -44,7 +41,6 @@ public class Car {
   public BigDecimal getPrice() {
     return price;
   }
-
   public void setPrice(BigDecimal price) {
     this.price = price;
   }
@@ -52,9 +48,30 @@ public class Car {
   public String getProducer() {
     return producer;
   }
-
   public void setProducer(String producer) {
     this.producer = producer;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final Car other = (Car) obj;
+    if (this.ID != other.ID) {
+      return false;
+    }
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int hash = 7;
+    hash = 67 * hash + (int) (this.ID ^ (this.ID >>> 32));
+    return hash;
   }
 
   
