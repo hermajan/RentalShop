@@ -33,6 +33,13 @@ public class CarManagerImplTest {
     car.setPrice(price);
     return car;
   }
+  private void assertDeepEquals(Car expected, Car actual) {
+        assertEquals(expected.getID(), actual.getID());
+        assertEquals(expected.getProducer(), actual.getProducer());
+        assertEquals(expected.getModel(), actual.getModel());
+        assertEquals(expected.getManufactured(), actual.getManufactured());
+        assertEquals(expected.getPrice(), actual.getPrice());
+  }
   
   @Test
   public void creating() {
@@ -52,7 +59,8 @@ public class CarManagerImplTest {
       assertNotNull(carPrice);
       
       Car c=man.readByID(carID);
-      assertEquals(car,c); //dodělat deep equals
+      assertEquals(car,c);
+      assertDeepEquals(car,c);
       c.setModel("Octavia");
       assertNotSame(car,c);
   }
@@ -101,7 +109,7 @@ public class CarManagerImplTest {
   public void deleting() {
     Calendar cal1=new GregorianCalendar(); cal1.set(2010,5,12); Date d1=cal1.getTime();
     Car c1=newCar(1,"Skoda","Fabia",d1,BigDecimal.valueOf(1000));
-    Calendar cal2=new GregorianCalendar(); cal2.set(2010,5,12); Date d2=cal2.getTime();
+    Calendar cal2=new GregorianCalendar(); cal2.set(2010,12,5); Date d2=cal2.getTime();
     Car c2=newCar(2,"Volkswagen","Golf",d2,BigDecimal.valueOf(1000));
     man.create(c1);
     man.create(c2);
