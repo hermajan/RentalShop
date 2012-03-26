@@ -12,6 +12,7 @@ public class Car {
   long ID;
   String producer;
   String model;
+  String spz;
   Date manufactured;
   BigDecimal price;
   
@@ -52,6 +53,14 @@ public class Car {
     this.producer = producer;
   }
 
+  public String getSpz() {
+    return spz;
+  }
+  public void setSpz(String spz) {
+    this.spz = spz;
+  }
+
+  
   @Override
   public boolean equals(Object obj) {
     if (obj == null) {
