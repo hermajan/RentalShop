@@ -5,9 +5,13 @@
 package rentalshop;
 
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,11 +22,25 @@ import org.junit.Test;
  */
 public class CarManagerImplTest {
   private CarManagerImpl man;
+  private Connection con;
   
   @Before
-  public void setUp() {
-    man=new CarManagerImpl();
+  public void setUp() throws SQLException {
+    con=DriverManager.getConnection("jdbc:derby:memory:CarManagerTest;create=true");
+        con.prepareStatement("CREATE TABLE CARS ("
+            +"ID BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,"
+            +"PRODUCER VARCHAR(50),"
+            +"MODEL VARCHAR(50),"
+            +"SPZ VARCHAR(50),"
+            +"MANUFACTURED DATE,"
+            +"PRICE DECIMAL").executeUpdate();
+        man = new CarManagerImpl(con);
   }
+  @After
+    public void tearDown() throws SQLException {
+        con.prepareStatement("DROP TABLE CARS").executeUpdate();        
+        con.close();
+    }
   
   private Car newCar(long id, String producer, String model, Date manufactured, BigDecimal price) {
     Car car=new Car();
