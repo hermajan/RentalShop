@@ -9,17 +9,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 import java.util.GregorianCalendar;
 import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- *
- * @author DJohnny
- */
 public class CarManagerImplTest {
   private CarManagerImpl man;
   private Connection con;
@@ -33,14 +29,14 @@ public class CarManagerImplTest {
             +"MODEL VARCHAR(50),"
             +"SPZ VARCHAR(50),"
             +"MANUFACTURED DATE,"
-            +"PRICE DECIMAL").executeUpdate();
+            +"PRICE DECIMAL)").executeUpdate();
         man = new CarManagerImpl(con);
   }
   @After
-    public void tearDown() throws SQLException {
-        con.prepareStatement("DROP TABLE CARS").executeUpdate();        
-        con.close();
-    }
+  public void tearDown() throws SQLException {
+      con.prepareStatement("DROP TABLE CARS").executeUpdate();        
+      con.close();
+  }
   
   private Car newCar(long id, String producer, String model, Date manufactured, BigDecimal price) {
     Car car=new Car();
@@ -60,8 +56,8 @@ public class CarManagerImplTest {
   }
   
   @Test
-  public void creating() {
-      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=cal.getTime();
+  public void creating() throws SQLException {
+      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=new Date(cal.getTime().getTime());
       Car car=newCar(1,"Skoda","Fabia",date,BigDecimal.valueOf(1000));
 
       man.create(car);
@@ -84,7 +80,7 @@ public class CarManagerImplTest {
   }
 
   @Test
-  public void creatingWrongly() {
+  public void creatingWrongly() throws SQLException {
     try {
       man.create(null);
       fail();
@@ -92,15 +88,7 @@ public class CarManagerImplTest {
     catch(IllegalArgumentException iae) {}
     
     try {
-      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=cal.getTime();
-      Car c1=newCar(-1,"Skoda","Fabia",date,BigDecimal.valueOf(1000));
-      man.create(c1);
-      fail();
-    }
-    catch(IllegalArgumentException iae) {}
-    
-    try {
-      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=cal.getTime();
+      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=new Date(cal.getTime().getTime());
       Car c2=newCar(1,null,"Fabia",date,BigDecimal.valueOf(1000));
       man.create(c2); assertNull(c2.getProducer());
       fail();
@@ -108,7 +96,7 @@ public class CarManagerImplTest {
     catch(IllegalArgumentException iae) {}
     
     try {
-      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=cal.getTime();
+      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=new Date(cal.getTime().getTime());
       Car c3=newCar(1,"Skoda",null,date,BigDecimal.valueOf(1000));
       man.create(c3); assertNull(c3.getModel());
       fail(); 
@@ -124,10 +112,10 @@ public class CarManagerImplTest {
   }
   
   @Test
-  public void deleting() {
-    Calendar cal1=new GregorianCalendar(); cal1.set(2010,5,12); Date d1=cal1.getTime();
+  public void deleting() throws SQLException {
+    Calendar cal1=new GregorianCalendar(); cal1.set(2010,5,12); Date d1=new Date(cal1.getTime().getTime());
     Car c1=newCar(1,"Skoda","Fabia",d1,BigDecimal.valueOf(1000));
-    Calendar cal2=new GregorianCalendar(); cal2.set(2010,12,5); Date d2=cal2.getTime();
+    Calendar cal2=new GregorianCalendar(); cal2.set(2010,12,5); Date d2=new Date(cal2.getTime().getTime());;
     Car c2=newCar(2,"Volkswagen","Golf",d2,BigDecimal.valueOf(1000));
     man.create(c1);
     man.create(c2);

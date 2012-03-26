@@ -1,12 +1,8 @@
 
 package rentalshop;
 
-import java.util.Date;
+import java.sql.Date;
 
-/**
- *
- * @author DJohnny
- */
 public class Order {
   long ID;
   Date from;

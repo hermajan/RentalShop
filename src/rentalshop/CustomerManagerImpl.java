@@ -4,10 +4,6 @@ package rentalshop;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author DJohnny
- */
 public class CustomerManagerImpl {
   Customer customer=new Customer();
   List<Customer> customers=new ArrayList<Customer>();

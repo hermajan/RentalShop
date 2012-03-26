@@ -5,10 +5,6 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author DJohnny
- */
 public class Customer {
   long ID;
   String name;

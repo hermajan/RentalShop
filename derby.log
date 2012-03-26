@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Mon Mar 26 20:16:23 CEST 2012:
+ Zavádìní serveru Derby verze The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-0136-5039-2169-000002cdbf98
+v adresáøi databáze memory:C:\Dropbox\java3\RentalShop\CarManagerTest  sun.misc.Launcher$AppClassLoader@612438f1 
+
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0-b147
+user.dir=C:\Dropbox\java3\RentalShop
+derby.system.home=null
+Byl spuštìn zavadìè tøídy databáze - derby.database.classpath=''

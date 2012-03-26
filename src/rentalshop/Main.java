@@ -1,10 +1,6 @@
 
 package rentalshop;
 
-/**
- *
- * @author DJohnny
- */
 public class Main {
 
   /**
