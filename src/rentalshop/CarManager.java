@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface CarManager {
   public boolean create(Car car) throws SQLException,FailureException;
-  public boolean modify(long id,Car car);
-  public boolean delete(long id);
+  public boolean modify(Long id,Car car);
+  public boolean delete(Long id);
   public List<Car> readAll();
-  public Car readByID(long id);
+  public Car readByID(Long id);
   
 }

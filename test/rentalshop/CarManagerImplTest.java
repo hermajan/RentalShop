@@ -6,11 +6,14 @@ package rentalshop;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Calendar;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.GregorianCalendar;
+import javax.sql.DataSource;
+import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -18,25 +21,47 @@ import org.junit.Test;
 
 public class CarManagerImplTest {
   private CarManagerImpl man;
-  private Connection con;
+  private DataSource ds;
+  
+  private static DataSource prepareDataSource() throws SQLException {
+        BasicDataSource ds = new BasicDataSource();
+        //we will use in memory database
+        ds.setUrl("jdbc:derby:memory:CarManagerTest;create=true");
+        return ds;
+    }
+ 
   
   @Before
   public void setUp() throws SQLException {
-    con=DriverManager.getConnection("jdbc:derby:memory:CarManagerTest;create=true");
-        con.prepareStatement("CREATE TABLE CARS ("
+    ds = prepareDataSource();
+    Connection con = null;
+    PreparedStatement st = null;
+    try{
+        
+        con = ds.getConnection();
+        con.setAutoCommit(false);
+        st = con.prepareStatement("CREATE TABLE CARS ("
             +"ID BIGINT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,"
             +"PRODUCER VARCHAR(50),"
             +"MODEL VARCHAR(50),"
             +"SPZ VARCHAR(50),"
             +"MANUFACTURED DATE,"
-            +"PRICE DECIMAL)").executeUpdate();
-        man = new CarManagerImpl(con);
+            +"PRICE DECIMAL)");
+        st.executeUpdate();
+        con.commit();
+        man = new CarManagerImpl();
+        man.setCon(ds);        
+    } finally{
+        DatabaseCommon.cleanMe(st, con, true); 
+   }
+    
   }
   @After
   public void tearDown() throws SQLException {
+      Connection con = ds.getConnection();
       con.prepareStatement("DROP TABLE CARS").executeUpdate();        
-      con.close();
-  }
+      con.close();    
+    }   
   
   private Car newCar(long id, String producer, String model, Date manufactured, BigDecimal price) {
     Car car=new Car();
@@ -51,13 +76,16 @@ public class CarManagerImplTest {
         assertEquals(expected.getID(), actual.getID());
         assertEquals(expected.getProducer(), actual.getProducer());
         assertEquals(expected.getModel(), actual.getModel());
-        assertEquals(expected.getManufactured(), actual.getManufactured());
-        assertEquals(expected.getPrice(), actual.getPrice());
+        assertEquals(expected.getPrice().intValue(), actual.getPrice().intValue());
+        assertEquals(expected.getManufactured().toString(),actual.getManufactured().toString());
+            
   }
   
   @Test
   public void creating() throws SQLException {
-      Calendar cal=new GregorianCalendar(); cal.set(2010,5,12); Date date=new Date(cal.getTime().getTime());
+     Calendar cal=new GregorianCalendar(); 
+     cal.set(2010,5,12); 
+      Date date=new Date(cal.getTimeInMillis());
       Car car=newCar(1,"Skoda","Fabia",date,BigDecimal.valueOf(1000));
 
       man.create(car);
@@ -128,4 +156,28 @@ public class CarManagerImplTest {
     assertNull(man.readByID(c1.getID()));
     assertNotNull(man.readByID(c2.getID()));    
   }
+  
+  @Test
+  public void readWithWrongArguments() throws SQLException {
+          assertNull(man.readByID(1L)); 
+      
+      try{
+          man.readByID(null); 
+          fail();
+      } catch(IllegalArgumentException ex){
+          //ok          
+      } try{
+          man.readByID(0L); 
+          fail();
+      } catch(IllegalArgumentException ex){
+          //ok          
+      }  
+      try{
+          man.readByID(-1L); 
+          fail();
+      } catch(IllegalArgumentException ex){
+          //ok          
+      }   
+  }
+  
 }

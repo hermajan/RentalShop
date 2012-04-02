@@ -11,7 +11,7 @@ public class Customer {
   String surname;
   int drivingLicenseNumber;
   int identificationCardNumber;
-  BigDecimal doubt;
+  BigDecimal debts;
   
   public Customer() { }
 
@@ -23,12 +23,12 @@ public class Customer {
     this.ID = ID;
   }
 
-  public BigDecimal getDoubt() {
-    return doubt;
+  public BigDecimal getDebts() {
+    return debts;
   }
 
-  public void setDoubt(BigDecimal doubt) {
-    this.doubt = doubt;
+  public void setDebts(BigDecimal debt) {
+    this.debts = debt;
   }
 
   public int getDrivingLicenseNumber() {
@@ -62,7 +62,28 @@ public class Customer {
   public void setSurname(String surname) {
     this.surname = surname;
   }
-  
+ 
+  @Override
+  public boolean equals(Object obj) {
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final Customer other = (Customer) obj;
+    if (this.ID != other.ID) {
+      return false;
+    }
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int hash = 7;
+    hash = 67 * hash + (int) (this.ID ^ (this.ID >>> 32));
+    return hash;
+  }
   
   
 }
