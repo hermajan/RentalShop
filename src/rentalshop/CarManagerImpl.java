@@ -22,18 +22,10 @@ public class CarManagerImpl implements CarManager {
             throw new IllegalArgumentException("car is null");
         }
         //if(car.getID()!=null) { throw new IllegalArgumentException("car id is already set"); }
-        if (car.getProducer() == null) {
-            throw new IllegalArgumentException("car producer is empty");
-        }
-        if (car.getModel() == null) {
-            throw new IllegalArgumentException("car producer is empty");
-        }
-        if (car.getManufactured() == null) {
-            throw new IllegalArgumentException("car manufactured date is empty");
-        }
-        if (car.getPrice() == null) {
-            throw new IllegalArgumentException("car price is empty");
-        }
+        if (car.getProducer() == null) { throw new IllegalArgumentException("car producer is empty"); }
+        if (car.getModel() == null) { throw new IllegalArgumentException("car model is empty"); }
+        //if (car.getManufactured() == null) { throw new IllegalArgumentException("car manufactured date is empty"); }
+        //if (car.getPrice() == null) { throw new IllegalArgumentException("car price is empty"); }
     }
 
     public void setCon(DataSource ds) {
@@ -42,7 +34,7 @@ public class CarManagerImpl implements CarManager {
     public static final Logger logger = Logger.getLogger(CarManagerImpl.class.getName());
 
     @Override
-    public boolean create(Car car) throws SQLException, FailureException {
+    public boolean create(Car car) throws FailureException {
         isConnected();
         isValidCar(car);
         
@@ -135,21 +127,22 @@ public class CarManagerImpl implements CarManager {
         Connection con = null;
         try {
             con = ds.getConnection();
-            st = con.prepareStatement("SELECT ID, MANUFACTURED, MODEL, PRICE, PRODUCER, SPZ FROM CARS");
+            st = con.prepareStatement("SELECT ID, PRODUCER, SPZ, MODEL, MANUFACTURED, PRICE FROM CARS");
             boolean execute = st.execute();
             if (!execute) {
                 throw new FailureException("Error, when reading cars");
             }
             ResultSet resultSet = st.getResultSet();
-            Car returnCar = new Car();
+            
             while (resultSet.next()) {
-                returnCar.setID(resultSet.getLong("ID"));
-                returnCar.setManufactured(resultSet.getDate("MANUFACTURED"));
-                returnCar.setModel(resultSet.getString("MODEL"));
-                returnCar.setPrice(resultSet.getBigDecimal("PRICE"));
-                returnCar.setProducer(resultSet.getString("PRODUCER"));
-                returnCar.setSpz(resultSet.getString("SPZ"));
-                returnCars.add(returnCar);
+              Car car = new Car();
+                car.setID(resultSet.getLong("ID"));
+                car.setProducer(resultSet.getString("PRODUCER"));
+                car.setModel(resultSet.getString("MODEL"));
+                car.setSpz(resultSet.getString("SPZ"));
+                car.setManufactured(resultSet.getDate("MANUFACTURED"));
+                car.setPrice(resultSet.getBigDecimal("PRICE"));
+                returnCars.add(car);
             }
 
         } catch (SQLException ex) {

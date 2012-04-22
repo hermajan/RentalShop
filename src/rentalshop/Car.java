@@ -78,6 +78,24 @@ public class Car {
     hash = 67 * hash + (int) (this.ID ^ (this.ID >>> 32));
     return hash;
   }
-
+ 
   
+  public Car validateAndToCar(StringBuilder errors) {
+        Car car = new Car();
+        if (getProducer() == null || getProducer().isEmpty()) { car.setProducer(null); }
+          else { car.setProducer(getProducer()); }
+        if (getModel() == null || getModel().isEmpty()) { car.setModel(null); }
+          else { car.setModel(getModel()); }
+        if (getSpz() == null || getSpz().isEmpty()) { car.setSpz(null); }
+          else { car.setSpz(getSpz()); }
+        if (getManufactured() == null || getManufactured().toString().isEmpty()) { car.setManufactured(null); }
+          else { car.setManufactured(getManufactured()); }
+        if (getPrice() == null || getPrice().toString().isEmpty()) { car.setPrice(null); }
+          else { car.setPrice(getPrice()); }
+        if (errors.length() > 0) {
+            return null;
+        } else {
+            return car;
+        }
+  }
 }

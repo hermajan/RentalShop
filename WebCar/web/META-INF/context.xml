@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/WebCar">
+<Resource name="jdbc/dbRentalShop"
+        auth="Container" type="javax.sql.DataSource"
+        driverClassName="org.apache.derby.jdbc.ClientDriver"
+        username="admin" password="heslo"
+        url="jdbc:derby://localhost:1527/dbRentalShop"/>
+
+</Context>
