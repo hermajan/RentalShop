@@ -139,9 +139,9 @@ public class OrderManagerImpl implements OrderManager {
             if (!execute) {
                 throw new FailureException("Error, when reading orders");
             }
-            ResultSet resultSet = st.getResultSet();
-            Order ord = new Order();
+            ResultSet resultSet = st.getResultSet();            
             while (resultSet.next()) {
+				Order ord = new Order();
                 ord.setID(resultSet.getLong("ID"));
                 ord.setFrom(resultSet.getDate("FROM"));
                 ord.setTo(resultSet.getDate("TO"));
