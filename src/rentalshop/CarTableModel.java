@@ -6,8 +6,6 @@ package rentalshop;
 
 import java.math.BigDecimal;
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -16,17 +14,17 @@ import javax.swing.table.AbstractTableModel;
  */
 public class CarTableModel extends AbstractTableModel {
   private static final long serialVersionUID = 1L;
- 
-    private List<Car> cars = new ArrayList<Car>();
-    private CarManagerImpl carMan=new CarManagerImpl();
- 
+  private CarManagerImpl man;
+
     public CarTableModel() {
-      this.cars=this.carMan.readAll();
-    }
+        man = new CarManagerImpl();
+        man.setCon(Window.ds);
+    }   
+ 
     
     @Override
     public int getRowCount() {
-        return cars.size();
+        return man.readAll().size();
     }
  
     @Override
@@ -36,7 +34,7 @@ public class CarTableModel extends AbstractTableModel {
  
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Car car = cars.get(rowIndex);
+        Car car = man.readAll().get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return car.getID();
@@ -56,27 +54,34 @@ public class CarTableModel extends AbstractTableModel {
     }
     
     public void addCar(Car car) {
-        cars.add(car);
-        carMan.create(car);
-        int lastRow = cars.size() - 1;
+        man.create(car);
+        int lastRow = getRowCount() - 1;
         fireTableRowsInserted(lastRow, lastRow);
     }
-    
+    public void deleteCar(Long id,int row) {
+        man.delete(id);
+        fireTableRowsDeleted(row, row);
+    }
+    public void updateCar(Long id,int row,Car car) {
+        man.modify(id,car);
+        fireTableRowsUpdated(row, row);
+    }
+     
     @Override
     public String getColumnName(int columnIndex) {
         switch (columnIndex) {
             case 0:
-                return "ID";
+                return java.util.ResourceBundle.getBundle("Resource/Czech").getString("ID");
             case 1:
-                return "Producer";
+                return java.util.ResourceBundle.getBundle("Resource/Czech").getString("Producer");
             case 2:
-                return "Model";
+                return java.util.ResourceBundle.getBundle("Resource/Czech").getString("Model");
             case 3:
-                return "SPZ";
+                return java.util.ResourceBundle.getBundle("Resource/Czech").getString("SPZ");
             case 4:
-                return "Manufactured";
+                return java.util.ResourceBundle.getBundle("Resource/Czech").getString("Manufactured");
             case 5:
-                return "Price";
+                return java.util.ResourceBundle.getBundle("Resource/Czech").getString("Price");
             default:
                 throw new IllegalArgumentException("columnIndex");
         }
@@ -102,7 +107,7 @@ public class CarTableModel extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Car car = cars.get(rowIndex);
+        Car car = man.readAll().get(rowIndex);
         switch (columnIndex) {
             case 0:
                 car.setID((Long) aValue);

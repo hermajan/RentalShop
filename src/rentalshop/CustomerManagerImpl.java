@@ -3,6 +3,7 @@ package rentalshop;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
         
@@ -10,7 +11,9 @@ import javax.sql.DataSource;
 public class CustomerManagerImpl implements CustomerManager {
 
     private DataSource ds;
-
+    public CustomerManagerImpl(){
+        logger.addHandler(Window.logg);
+    }
     public void isConnected() throws IllegalStateException {
         if (ds == null) {
             throw new IllegalStateException("DataSource is not set");
@@ -46,6 +49,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public boolean create(Customer cust) throws FailureException {
+        logger.log(Level.INFO, "Attempt to create new customer:" + cust);
         isConnected();
         isValidCustomer(cust);
         
@@ -70,6 +74,7 @@ public class CustomerManagerImpl implements CustomerManager {
             con.commit();
 
         } catch (SQLException ex) {
+            logger.log(Level.SEVERE, "Error when inserting customer :" + cust, ex);
             throw new FailureException("Error when inserting customer " + cust, ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, true);            
@@ -95,6 +100,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public boolean modify(Long id, Customer cust){
+        logger.log(Level.INFO, "Attempt to modify customer with ID:" + id + cust);
         isConnected();
         isValidCustomer(cust);
         
@@ -107,22 +113,24 @@ public class CustomerManagerImpl implements CustomerManager {
         try {
             con = ds.getConnection();
             con.setAutoCommit(false);
-            st = con.prepareStatement("UPDATE CUSTOMERS (NAME,SURNAME,DRIVINGLICENSENUMBER,IDENTIFICATIONCARDNUMBER,DEBT) VALUES (?,?,?,?,?)");
+            st = con.prepareStatement("UPDATE CUSTOMERS SET NAME=?,SURNAME=?,DRIVINGLICENSENUMBER=?,IDENTIFICATIONCARDNUMBER=?,DEBT=? WHERE ID=?");
             st.setString(1, cust.getName());
             st.setString(2, cust.getSurname());
             st.setInt(3, cust.getDrivingLicenseNumber());
             st.setInt(4, cust.getIdentificationCardNumber());
             st.setBigDecimal(5, cust.getDebts());
+            st.setLong(6, id);
             int addedRows = st.executeUpdate();
             if (addedRows != 1) {
                 throw new FailureException("Error: Not only 1 customer updated when added" + cust);
             }
 
-            ResultSet keyRS = st.getGeneratedKeys();
-            cust.setID(getKey(keyRS, cust));
+            //ResultSet keyRS = st.getGeneratedKeys();
+            //cust.setID(getKey(keyRS, cust));
             con.commit();
 
         } catch (SQLException ex) {
+            logger.log(Level.SEVERE, "Error when updating customer " + cust, ex);
             throw new FailureException("Error when updating ustomer " + cust, ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, true);
@@ -132,6 +140,7 @@ public class CustomerManagerImpl implements CustomerManager {
 
     @Override
     public List<Customer> readAll() {
+        //logger.log(Level.INFO, "Attempt to read all customers.");
         isConnected();
         List<Customer> custs =  new ArrayList<Customer>();
         PreparedStatement st = null;
@@ -143,9 +152,9 @@ public class CustomerManagerImpl implements CustomerManager {
             if (!execute) {
                 throw new FailureException("Error, when reading customers");
             }
-            ResultSet resultSet = st.getResultSet();
-            Customer cust = new Customer();
+            ResultSet resultSet = st.getResultSet();            
             while (resultSet.next()) {
+                Customer cust = new Customer();
                 cust.setID(resultSet.getLong("ID"));
                 cust.setName(resultSet.getString("NAME"));
                 cust.setSurname(resultSet.getString("SURNAME"));
@@ -155,7 +164,8 @@ public class CustomerManagerImpl implements CustomerManager {
                 custs.add(cust); 
            }
         } catch (SQLException ex) {
-            throw new FailureException("Error, when reading cars", ex);
+            logger.log(Level.INFO, "error when reading customers", ex);
+            throw new FailureException("Error, when reading customers", ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, false);            
         }
@@ -164,6 +174,7 @@ public class CustomerManagerImpl implements CustomerManager {
     
     @Override
     public Customer readByID(Long id) {
+        //logger.log(Level.INFO, "Attempt to read customer by ID: " + id);
         isConnected();
         if (id == null || id <= 0){
             throw new IllegalArgumentException("Wrong ID given: " + id);
@@ -189,6 +200,7 @@ public class CustomerManagerImpl implements CustomerManager {
                 throw new FailureException("Error, id duplicity with ID:" + id);
             }
         } catch (SQLException ex) {
+            logger.log(Level.INFO, "Error, when reading customer with Id:" + id, ex);
             throw new FailureException("Error, when reading customer with Id:" + id, ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, false);
@@ -198,6 +210,7 @@ public class CustomerManagerImpl implements CustomerManager {
     
     @Override
   public boolean delete(Long id) {
+    logger.log(Level.INFO, "Attempt to delete customer with ID: " + id);    
     isConnected();
     if (id <= 0 || id == null){
             throw new IllegalArgumentException("Wrong ID given: " + id);
@@ -213,6 +226,7 @@ public class CustomerManagerImpl implements CustomerManager {
         if (deletedRows != 1) { throw new FailureException("Error: More rows deleted when trying to delete customer with ID: " + id); }
         con.commit();
     } catch (SQLException ex) {
+        logger.log(Level.SEVERE, "Error when deleting customer with ID: " + id);
         throw new FailureException("Error when deleting customer with ID "+id, ex);
     } finally {
         DatabaseCommon.cleanMe(st, con, true);

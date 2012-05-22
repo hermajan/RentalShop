@@ -10,6 +10,11 @@ public class Customer {
   int drivingLicenseNumber;
   int identificationCardNumber;
   BigDecimal debts;
+
+    @Override
+    public String toString() {
+        return name + " " + surname;
+    }
   
   public Customer() { }
 

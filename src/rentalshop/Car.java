@@ -98,4 +98,9 @@ public class Car {
             return car;
         }
   }
+
+    @Override
+    public String toString() {
+        return spz;
+    }
 }

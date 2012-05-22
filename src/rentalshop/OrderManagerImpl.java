@@ -4,13 +4,20 @@ package rentalshop;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
 
 public class OrderManagerImpl implements OrderManager {
   Order order=new Order();
-  List<Order> orders=new ArrayList<Order>();
+  List<Order> orders=new ArrayList<>();
   private DataSource ds;
+  private CarManagerImpl cMan = new CarManagerImpl();
+  
+  private CustomerManagerImpl cusMan = new CustomerManagerImpl();
+  public OrderManagerImpl(){
+        logger.addHandler(Window.logg);
+    }
 
   public void isConnected() throws IllegalStateException {
       if (ds == null) {
@@ -39,11 +46,14 @@ public class OrderManagerImpl implements OrderManager {
 
     public void setCon(DataSource ds) {
         this.ds = ds;
+        cMan.setCon(ds);
+        cusMan.setCon(ds);  
     }
     public static final Logger logger = Logger.getLogger(CarManagerImpl.class.getName());
 
     @Override
     public boolean create(Order ord) throws FailureException {
+        logger.log(Level.INFO, "Attempt to create order:" + ord);
         isConnected();
         isValidOrder(ord);
         
@@ -67,6 +77,7 @@ public class OrderManagerImpl implements OrderManager {
             con.commit();
 
         } catch (SQLException ex) {
+            logger.log(Level.INFO, "Error when creating order:" + ord);
             throw new FailureException("Error when inserting order " + ord, ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, true);            
@@ -92,6 +103,7 @@ public class OrderManagerImpl implements OrderManager {
 
     @Override
     public boolean modify(Long id, Order ord){
+        logger.log(Level.INFO, "Attempt to modify order with ID: " + id + ord);
         isConnected();
         isValidOrder(ord);
         
@@ -104,21 +116,23 @@ public class OrderManagerImpl implements OrderManager {
         try {
             con = ds.getConnection();
             con.setAutoCommit(false);
-            st = con.prepareStatement("UPDATE ORDERS (FROMO,TO,CAR,CUSTOMER) VALUES (?,?,?,?)");
+            st = con.prepareStatement("UPDATE ORDERS SET FROMO=?,TOO=?,CAR=?,CUSTOMER=? WHERE ID=?");
             st.setDate(1, ord.getFrom());
             st.setDate(2, ord.getTo());
             st.setLong(3, ord.getCar().getID());
             st.setLong(4, ord.getCustomer().getID());
+            st.setLong(5, id);
             int addedRows = st.executeUpdate();
             if (addedRows != 1) {
                 throw new FailureException("Error: Not only 1 order updated when added" + ord);
             }
 
-            ResultSet keyRS = st.getGeneratedKeys();
-            ord.setID(getKey(keyRS, ord));
+            //ResultSet keyRS = st.getGeneratedKeys();
+            //ord.setID(getKey(keyRS, ord));
             con.commit();
 
         } catch (SQLException ex) {
+            logger.log(Level.SEVERE, "Error when updating order: " + id, ex);
             throw new FailureException("Error when updating order " + ord, ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, true);
@@ -128,29 +142,31 @@ public class OrderManagerImpl implements OrderManager {
 
     @Override
     public List<Order> readAll() {
+        //logger.log(Level.INFO, "Attempt to read All Orders ");
         isConnected();
-        List<Order> ords =  new ArrayList<Order>();
+        List<Order> ords =  new ArrayList<>();
         PreparedStatement st = null;
         Connection con = null;
         try {
             con = ds.getConnection();
-            st = con.prepareStatement("SELECT ID,FROMO,TOO,CAR,CUSTOMER FROM ORDERS");
+            st = con.prepareStatement("SELECT * FROM ORDERS");
             boolean execute = st.execute();
             if (!execute) {
                 throw new FailureException("Error, when reading orders");
             }
             ResultSet resultSet = st.getResultSet();            
             while (resultSet.next()) {
-				Order ord = new Order();
+		Order ord = new Order();
                 ord.setID(resultSet.getLong("ID"));
-                ord.setFrom(resultSet.getDate("FROM"));
-                ord.setTo(resultSet.getDate("TO"));
-                //ord.setCar(CarManager.readByID(resultSet.getLong("CAR")));
-                //ord.setCustomer(resultSet.getLong("CUSTOMER"));
+                ord.setFrom(resultSet.getDate("FROMO"));
+                ord.setTo(resultSet.getDate("TOO"));
+                ord.setCar(cMan.readByID(resultSet.getLong("CAR")));
+                ord.setCustomer(cusMan.readByID(resultSet.getLong("CUSTOMER")));
                 ords.add(ord); 
            }
         } catch (SQLException ex) {
-            throw new FailureException("Error, when reading cars", ex);
+            logger.log(Level.SEVERE, "Error, when reading allorderrs ", ex);
+            throw new FailureException("Error, when reading orders", ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, false);            
         }
@@ -159,6 +175,7 @@ public class OrderManagerImpl implements OrderManager {
     
     @Override
     public Order readByID(Long id) {
+        //logger.log(Level.INFO, "Attempt to read order by ID: " + id);
         isConnected();
         if (id == null || id <= 0){
             throw new IllegalArgumentException("Wrong ID given: " + id);
@@ -187,6 +204,7 @@ public class OrderManagerImpl implements OrderManager {
                 throw new FailureException("Error, id duplicity with ID:" + id);
             }
         } catch (SQLException ex) {
+            logger.log(Level.INFO, "Error when reading customer by ID: " + id, ex);
             throw new FailureException("Error, when reading order with Id:" + id, ex);
         } finally {
             DatabaseCommon.cleanMe(st, con, false);
@@ -196,6 +214,7 @@ public class OrderManagerImpl implements OrderManager {
     
     @Override
   public boolean delete(Long id) {
+        logger.log(Level.INFO, "Attempt to delete order by ID: " + id);
     isConnected();
     if (id <= 0 || id == null){
             throw new IllegalArgumentException("Wrong ID given: " + id);
@@ -211,6 +230,7 @@ public class OrderManagerImpl implements OrderManager {
         if (deletedRows != 1) { throw new FailureException("Error: More rows deleted when trying to delete order with ID: " + id); }
         con.commit();
     } catch (SQLException ex) {
+        logger.log(Level.INFO, "Error when deleting order by ID: " + id);
         throw new FailureException("Error when deleting order with ID "+id, ex);
     } finally {
         DatabaseCommon.cleanMe(st, con, true);

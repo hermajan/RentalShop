@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2012-05-21T00:02:55</date>
+  <millis>1337551375614</millis>
+  <sequence>1</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>INFO</level>
+  <class>rentalshop.Window</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>Window created</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380442</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>21</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380442</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>21</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380442</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>21</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380442</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>21</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380442</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>21</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380442</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>21</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380442</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>21</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:00</date>
+  <millis>1337551380517</millis>
+  <sequence>3</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>INFO</level>
+  <class>rentalshop.Window$OrderSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>21</thread>
+  <message>rentalshop.Order@1d6 added to orders</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389506</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>22</thread>
+  <message>Attempt to modify order with ID: 1rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:09</date>
+  <millis>1337551389533</millis>
+  <sequence>5</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>INFO</level>
+  <class>rentalshop.Window$OrderSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>22</thread>
+  <message>rentalshop.Order@1d5 updated to orders</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399270</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>create</method>
+  <thread>23</thread>
+  <message>Attempt to create order:rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:19</date>
+  <millis>1337551399290</millis>
+  <sequence>7</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>INFO</level>
+  <class>rentalshop.Window$OrderSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>23</thread>
+  <message>rentalshop.Order@1d7 added to orders</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408031</millis>
+  <sequence>8</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.OrderManagerImpl</class>
+  <method>modify</method>
+  <thread>24</thread>
+  <message>Attempt to modify order with ID: 2rentalshop.Order@1d5</message>
+</record>
+<record>
+  <date>2012-05-21T00:03:28</date>
+  <millis>1337551408035</millis>
+  <sequence>9</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>INFO</level>
+  <class>rentalshop.Window$OrderSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>24</thread>
+  <message>rentalshop.Order@1d5 updated to orders</message>
+</record>
+</log>
