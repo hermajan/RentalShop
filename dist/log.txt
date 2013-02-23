@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="windows-1250" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2013-02-23T14:32:37</date>
+  <millis>1361626357635</millis>
+  <sequence>1</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>INFO</level>
+  <class>rentalshop.Window</class>
+  <method>&lt;init&gt;</method>
+  <thread>14</thread>
+  <message>Window created</message>
+</record>
+<record>
+  <date>2013-02-23T14:32:59</date>
+  <millis>1361626379675</millis>
+  <sequence>2</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>WARNING</level>
+  <class>rentalshop.Window$CustomerSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>22</thread>
+  <message>Error adding customer in Card number</message>
+  <exception>
+    <message>java.lang.NumberFormatException: For input string: ""</message>
+    <frame>
+      <class>java.lang.NumberFormatException</class>
+      <method>forInputString</method>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>parseInt</method>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>valueOf</method>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>613</line>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>604</line>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker$1</class>
+      <method>call</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask$Sync</class>
+      <method>innerRun</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor</class>
+      <method>runWorker</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor$Worker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2013-02-23T14:33:01</date>
+  <millis>1361626381735</millis>
+  <sequence>3</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>WARNING</level>
+  <class>rentalshop.Window$CustomerSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>23</thread>
+  <message>Error adding customer in Card number</message>
+  <exception>
+    <message>java.lang.NumberFormatException: For input string: "a"</message>
+    <frame>
+      <class>java.lang.NumberFormatException</class>
+      <method>forInputString</method>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>parseInt</method>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>valueOf</method>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>613</line>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>604</line>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker$1</class>
+      <method>call</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask$Sync</class>
+      <method>innerRun</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor</class>
+      <method>runWorker</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor$Worker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2013-02-23T14:33:05</date>
+  <millis>1361626385563</millis>
+  <sequence>4</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>WARNING</level>
+  <class>rentalshop.Window$CustomerSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>24</thread>
+  <message>Error adding customer in Card number</message>
+  <exception>
+    <message>java.lang.NumberFormatException: For input string: ""</message>
+    <frame>
+      <class>java.lang.NumberFormatException</class>
+      <method>forInputString</method>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>parseInt</method>
+    </frame>
+    <frame>
+      <class>java.lang.Integer</class>
+      <method>valueOf</method>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>614</line>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>604</line>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker$1</class>
+      <method>call</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask$Sync</class>
+      <method>innerRun</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor</class>
+      <method>runWorker</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor$Worker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2013-02-23T14:33:10</date>
+  <millis>1361626390601</millis>
+  <sequence>5</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>WARNING</level>
+  <class>rentalshop.Window$CustomerSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>25</thread>
+  <message>Error adding customer in Card number</message>
+  <exception>
+    <message>java.lang.NumberFormatException: empty String</message>
+    <frame>
+      <class>sun.misc.FloatingDecimal</class>
+      <method>readJavaFormatString</method>
+    </frame>
+    <frame>
+      <class>java.lang.Double</class>
+      <method>valueOf</method>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>615</line>
+    </frame>
+    <frame>
+      <class>rentalshop.Window$CustomerSaveWorker</class>
+      <method>doInBackground</method>
+      <line>604</line>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker$1</class>
+      <method>call</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask$Sync</class>
+      <method>innerRun</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.FutureTask</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>javax.swing.SwingWorker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor</class>
+      <method>runWorker</method>
+    </frame>
+    <frame>
+      <class>java.util.concurrent.ThreadPoolExecutor$Worker</class>
+      <method>run</method>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2013-02-23T14:33:14</date>
+  <millis>1361626394265</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.CustomerManagerImpl</class>
+  <method>create</method>
+  <thread>26</thread>
+  <message>Attempt to create new customer:a w</message>
+</record>
+<record>
+  <date>2013-02-23T14:33:14</date>
+  <millis>1361626394265</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.CustomerManagerImpl</class>
+  <method>create</method>
+  <thread>26</thread>
+  <message>Attempt to create new customer:a w</message>
+</record>
+<record>
+  <date>2013-02-23T14:33:14</date>
+  <millis>1361626394265</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.CustomerManagerImpl</class>
+  <method>create</method>
+  <thread>26</thread>
+  <message>Attempt to create new customer:a w</message>
+</record>
+<record>
+  <date>2013-02-23T14:33:14</date>
+  <millis>1361626394265</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.CustomerManagerImpl</class>
+  <method>create</method>
+  <thread>26</thread>
+  <message>Attempt to create new customer:a w</message>
+</record>
+<record>
+  <date>2013-02-23T14:33:14</date>
+  <millis>1361626394265</millis>
+  <sequence>6</sequence>
+  <logger>rentalshop.CarManagerImpl</logger>
+  <level>INFO</level>
+  <class>rentalshop.CustomerManagerImpl</class>
+  <method>create</method>
+  <thread>26</thread>
+  <message>Attempt to create new customer:a w</message>
+</record>
+<record>
+  <date>2013-02-23T14:33:14</date>
+  <millis>1361626394290</millis>
+  <sequence>7</sequence>
+  <logger>rentalshop.Window</logger>
+  <level>INFO</level>
+  <class>rentalshop.Window$CustomerSaveWorker</class>
+  <method>doInBackground</method>
+  <thread>26</thread>
+  <message>a w added to customers</message>
+</record>
+</log>

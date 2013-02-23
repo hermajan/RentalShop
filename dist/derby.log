@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Sat Feb 23 14:32:30 CET 2013:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-013d-0741-3cfc-000002d2f280 
+on database directory memory:D:\Dropbox\java3\RentalShop\dist\dbRentalShop  with class loader sun.misc.Launcher$AppClassLoader@33d88c1f 
+Loaded from file:/D:/Dropbox/java3/RentalShop/dist/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_15-b03
+user.dir=d:\Dropbox\java3\RentalShop\dist
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
